@@ -1,16 +1,15 @@
-import React, { useState } from 'react';
-
-
-
+import React, { useState, } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 
 const Login: React.FC = () => {
+    const navigate = useNavigate();
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const [keepSignedIn, setKeepSignedIn] = useState(false);
 
     const handleLogin = () => {
-
+        navigate('/overview');
         console.log('Logging in with:', username, password);
         console.log('Keep me signed in:', keepSignedIn);
 
@@ -53,7 +52,7 @@ const Login: React.FC = () => {
                         <label className="flex items-center">
                             <input
                                 type="checkbox"
-                                className="mr-2 "
+                                className="mr-2 w-4 h-4"
                                 checked={keepSignedIn}
                                 onChange={() => setKeepSignedIn(!keepSignedIn)}
                             />
